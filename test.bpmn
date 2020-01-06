@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0k0n4gi" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Zeebe Modeler" exporterVersion="0.7.0">
+  <bpmn:process id="test" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_0pbgdur</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="ServiceTask_072dr0s" name="paymentrequest">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="demo-service" retries="3" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0pbgdur</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0s9y8pv</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0pbgdur" sourceRef="StartEvent_1" targetRef="ServiceTask_072dr0s" />
+    <bpmn:sequenceFlow id="SequenceFlow_0s9y8pv" sourceRef="ServiceTask_072dr0s" targetRef="EndEvent_18xhqif" />
+    <bpmn:endEvent id="EndEvent_18xhqif">
+      <bpmn:incoming>SequenceFlow_0s9y8pv</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmn:message id="Message_03f8nnu" name="OrderPaid">
+    <bpmn:extensionElements>
+      <zeebe:subscription correlationKey="correlationKey" />
+    </bpmn:extensionElements>
+  </bpmn:message>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="test">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_072dr0t_di" bpmnElement="ServiceTask_072dr0s">
+        <dc:Bounds x="290" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0pbgdur_di" bpmnElement="SequenceFlow_0pbgdur">
+        <di:waypoint x="188" y="120" />
+        <di:waypoint x="290" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0s9y8pv_di" bpmnElement="SequenceFlow_0s9y8pv">
+        <di:waypoint x="390" y="120" />
+        <di:waypoint x="522" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_18xhqif_di" bpmnElement="EndEvent_18xhqif">
+        <dc:Bounds x="522" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

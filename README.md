@@ -1,8 +1,8 @@
 # kafka-zeebe-test
 
-zeebe-broker version: 0.22.0-alpha2
-zeebe-node version: 0.22.0-alpha.2
-kafka-node version: 5.0.0
+zeebe-broker version: 0.22.0-alpha2 <br />
+zeebe-node version: 0.22.0-alpha.2 <br />
+kafka-node version: 5.0.0 <br />
 
 The following error occurs only when kafka-node is installed. This happens when the worker tries to connect to the broker and immediately disconnects due to the below error.
 

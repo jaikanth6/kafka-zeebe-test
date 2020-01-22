@@ -19,6 +19,6 @@
   "homepage": "https://github.com/need4eat/kafka-zeebe-test#readme",
   "dependencies": {
     "kafka-node": "^5.0.0",
-    "zeebe-node": "^0.22.0-alpha.5"
+    "zeebe-node": "^0.22.1"
   }
 }
